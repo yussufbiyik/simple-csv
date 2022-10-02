@@ -1,0 +1,22 @@
+{
+  "name": "simple-csv",
+  "version": "1.0.0",
+  "description": "Very simple module to work with CSV, inspired by the simpleness of built-in JSON object of JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yussufbiyik/simple-csv.git"
+  },
+  "keywords": [
+    "csv"
+  ],
+  "author": "Yusuf Bıyık",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yussufbiyik/simple-csv/issues"
+  },
+  "homepage": "https://github.com/yussufbiyik/simple-csv#readme"
+}
