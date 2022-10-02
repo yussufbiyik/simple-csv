@@ -1,24 +1,27 @@
 const quoteRegex = /"/gm;
 
 function surroundWithDoubleQuote(string, isSurronded) {
-    // Surround already existing double quotes with another set of double quotes..
-    // ..so it doesn't cause any problems. 
+    // Surround already existing double quotes with another set of double quotes
+    // so it doesn't cause any problem. 
     string = string.replace(quoteRegex, '""'); 
     if(isSurronded) return `"${string}"`;
     return string;
 }
 
 function findObjectWithLongestKeys(objects) {
+    // Use .map to create an object containing the index and key length of each object
+    // Compare objects by using .reduce
     const objectWithLongestKeys = objects.map((object, index) => {return {index:index, length: Object.keys(object).length}}).reduce((previous, current) => previous.length > current.length ? previous : current);
     return objects[objectWithLongestKeys.index]
 }
 
-exports.parse = function (csvFile) {
-    // Parse a csv file then return an object
+// Return an object by parsing a CSV string
+exports.parse = function (csv, options) {
+    // some code
 }
 
+// Returns a CSV string with the given objects and options
 exports.stringify = function (objects, options) {
-    // Turn an object to a CSV file
     let = seperator = ","
     let = isSurronded = true
     if(options) {
