@@ -1,17 +1,16 @@
-// I have not tested this so don't judge.
+const quoteRegex = /"/gm;
 
-const quoteRegex = /"/gmi;
-
-function surroundWithDoubleQuote(string, isSurroundedWithDoubleQuote) {
+function surroundWithDoubleQuote(string, isSurronded) {
     // Surround already existing double quotes with another set of double quotes..
     // ..so it doesn't cause any problems. 
-    string.replace(quoteRegex, '""'); 
-    if(isSurroundedWithDoubleQuote) return `"${string}"`;
+    string = string.replace(quoteRegex, '""'); 
+    if(isSurronded) return `"${string}"`;
     return string;
 }
 
 function findObjectWithLongestKeys(objects) {
-    // some code
+    const objectWithLongestKeys = objects.map((object, index) => {return {index:index, length: Object.keys(object).length}}).reduce((previous, current) => previous.length > current.length ? previous : current);
+    return objects[objectWithLongestKeys.index]
 }
 
 exports.parse = function (csvFile) {
@@ -20,15 +19,19 @@ exports.parse = function (csvFile) {
 
 exports.stringify = function (objects, options) {
     // Turn an object to a CSV file
-    const seperator = options.seperator ? options.seperator : ",";
-    const isSurroundedWithDoubleQuote = options.isSurroundedWithDoubleQuote ? options.isSurroundedWithDoubleQuote : false;
+    let = seperator = ","
+    let = isSurronded = true
+    if(options) {
+        seperator = options.seperator ? options.seperator : seperator;
+        isSurronded = options.isSurronded ? options.isSurronded : isSurronded;
+    }
     // Headers are generated based on the object with the longest length of keys.
-    const headers = Object.keys(findObjectWithLongestKeys(objects)).map(key => surroundWithDoubleQuote(key, isSurroundedWithDoubleQuote)).join(seperator);
+    const headers = Object.keys(findObjectWithLongestKeys(objects)).map(key => surroundWithDoubleQuote(key, isSurronded)).join(seperator);
     let csv = headers;
     // Get values of each object and add them to the csv string
     for (let index = 0; index < objects.length; index++) {
         const object = objects[index];
-        const data = Object.values(object).map(value => surroundWithDoubleQuote(value, isSurroundedWithDoubleQuote)).join(seperator);
+        const data = Object.values(object).map(value => surroundWithDoubleQuote(value, isSurronded)).join(seperator);
         csv += `\n${data}`;
         if(index === objects.length - 1) {
             return csv;
