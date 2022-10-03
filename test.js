@@ -25,32 +25,28 @@ const objects = [
         headerThree: "kimi",
         luckyOne: "I have 4 headers!"
     },
+    {
+        headerOne: "some data",
+        headerTwo: '"I already have some "double quotes", can you handle this?"',
+        headerThree: "kimi",
+    },
 ]
 
-// Dummy options
-const optionsAllSpecified = {
-    seperator: ",",
-    isSurronded: true
-}
-const optionsOnlySeperator = {
-    seperator: ",",
-}
-const optionsOnlyQuotes = {
-    isSurronded: true
-}
+// Dummy CSV files can be downloaded from https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html maybe?
 
+// Dummy options
 const optionsArray = [
     {
         identifier: "default",
         options:{
             seperator: ",",
-            isSurronded: true
+            isSurrounded: true
         }
     },{
-        identifier: "not surrounded and seperated with ';'",
+        identifier: "not surrounded and seperated with '|'",
         options:{
-            seperator: ";",
-            isSurronded: false
+            seperator: "|",
+            isSurrounded: false
         }
     },{
         identifier: "seperated with ';'",
@@ -60,13 +56,17 @@ const optionsArray = [
     },{
         identifier: "not surrounded",
         options:{
-            isSurronded: false
+            isSurrounded: false
         }
     }
 ]
 
+console.log(
+    `\n[[ no options ]]]\n${CSV.stringify(objects)}\n[[[ no options ]]]`
+)
 optionsArray.forEach(options => {
+    console.log(options)
     console.log(
-        `\n[[[${options.identifier}]]]\n${CSV.stringify(objects, options.options)}\n[[[${options.identifier}]]]`
+        `\n[[[ ${options.identifier} ]]]\n${CSV.stringify(objects, options.options)}\n[[[ ${options.identifier} ]]]`
     )
 })
