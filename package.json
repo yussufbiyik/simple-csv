@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/yussufbiyik/simple-csv/issues"
   },
-  "homepage": "https://github.com/yussufbiyik/simple-csv#readme"
+  "homepage": "https://github.com/yussufbiyik/simple-csv#readme",
+  "devDependencies": {
+    "eslint": "^8.24.0"
+  }
 }
