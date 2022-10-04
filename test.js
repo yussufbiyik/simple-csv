@@ -27,7 +27,7 @@ const objects = [
     },
     {
         headerOne: "some data",
-        headerTwo: '"I already have some "double quotes", can you handle this?"',
+        headerTwo: 'I already have some "double quotes", can you handle this?',
         headerThree: "kimi",
     },
 ]
@@ -67,6 +67,12 @@ const optionsArray = [
         identifier: "not surrounded",
         options:{
             isSurrounded: false
+        }
+    },{
+        identifier: "surrounded and seperated with '|'",
+        options:{
+            seperator: "|",
+            isSurrounded: true
         }
     }
 ]

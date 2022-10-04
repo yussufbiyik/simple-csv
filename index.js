@@ -51,17 +51,14 @@ function unSurround(string) {
  * Seperator that is used in the CSV to seperate the values
  * @param {Boolean} options.isSurrounded
  * Specifies if the values are seperated by double quotes,
- * if true, assumes that all the values are surrounded by double quotes
+ * if true, assumes that all the values are surrounded by double quotes,
+ * is true by default
  * @returns {object[]}
  * Object containing parsed CSV data from the passed CSV string
  */
 exports.parse = function (csv, options) {
-    let seperator = ",";
-    let isSurrounded = false;
-    if(options) {
-        seperator = (options.seperator || seperator);
-        isSurrounded = ((options.isSurrounded === true) ? options.isSurrounded : isSurrounded);
-    }
+    const seperator = ((options && options.seperator) ? options.seperator : ",");
+    const isSurrounded = ((options && !options.isSurrounded) ? options.isSurrounded : true);
     const lines = csv.split(newLineRegex)
         .filter((line) => line.length>1)
         .map((line) => line.trim());
@@ -99,16 +96,13 @@ exports.parse = function (csv, options) {
  * Seperator that is going to be used to seperate the values
  * @param {Boolean} options.isSurrounded
  * Specifies if the value is going to be surrounded with double quotes
+ * is true by default
  * @returns {string}
  * A string containing stringified object data from the passed array of objects.
  */
 exports.stringify = function (objects, options) {
-    let seperator = ",";
-    let isSurrounded = true;
-    if(options) {
-        seperator = (options.seperator || seperator);
-        isSurrounded = ((options.isSurrounded === false) ? options.isSurrounded : isSurrounded);
-    }
+    const seperator = ((options && options.seperator) ? options.seperator : ",");
+    const isSurrounded = ((options && !options.isSurrounded) ? options.isSurrounded : true);
     // Headers are generated based on
     // the object with the longest length of keys.
     const headers = Object.keys(findObjectWithLongestKeys(objects))
