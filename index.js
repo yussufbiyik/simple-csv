@@ -44,7 +44,7 @@ function unSurround(string) {
 /**
  * Returns an array of objects by parsing a CSV string.
  * @param {string} csv
- * Source of the object as a string containing CSV data
+ * Source of the output object as a string containing CSV data
  * @param {object=} [options={seperator:",", isSurrounded: true}]
  * Specifies the properties of the output
  * @param {string} options.seperator
@@ -95,7 +95,7 @@ exports.parse = function (csv, options) {
  * @param {string} options.seperator
  * Seperator that is going to be used to seperate the values
  * @param {Boolean} options.isSurrounded
- * Specifies if the value is going to be surrounded with double quotes
+ * Specifies if the value is going to be surrounded with double quotes,
  * is true by default
  * @returns {string}
  * A string containing stringified object data from the passed array of objects.
