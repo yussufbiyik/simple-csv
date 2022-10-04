@@ -32,7 +32,17 @@ const objects = [
     },
 ]
 
-// Dummy CSV files can be downloaded from https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html maybe?
+// Dummy CSV strings from https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html
+const csvStrings = [
+    `"Day of Week", "Number of Crashes"
+    "Sunday is the best ""day""", "13664"
+    "Monday is the worst ""day""", "17279"
+    "Tuesday", "17337"
+    "Wednesday", "17394"
+    "Thursday", "17954"
+    "Friday", "19147"
+    "Saturday", "15714"`
+]
 
 // Dummy options
 const optionsArray = [
@@ -61,12 +71,20 @@ const optionsArray = [
     }
 ]
 
-console.log(
-    `\n[[ no options ]]]\n${CSV.stringify(objects)}\n[[[ no options ]]]`
-)
-optionsArray.forEach(options => {
-    console.log(options)
-    console.log(
-        `\n[[[ ${options.identifier} ]]]\n${CSV.stringify(objects, options.options)}\n[[[ ${options.identifier} ]]]`
-    )
-})
+function testStringify() {
+    console.log(`\n[[ no options ]]]\n${CSV.stringify(objects)}\n[[[ no options ]]]`)
+    optionsArray.forEach(options => {
+        console.log(options)
+        console.log(
+            `\n[[[ ${options.identifier} ]]]\n${CSV.stringify(objects, options.options)}\n[[[ ${options.identifier} ]]]`
+        )
+    })
+}
+
+function testParse() {
+    console.log(CSV.parse(csvStrings[0], {seperator:',', isSurrounded:true}))
+    // console.log(CSV.parse(csvStrings[1], {seperator:',', isSurrounded:false}))
+}
+
+testParse()
+testStringify()
