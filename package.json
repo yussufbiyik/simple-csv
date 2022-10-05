@@ -1,5 +1,5 @@
 {
-  "name": "simple-csv",
+  "name": "@yussufbiyik/simple-csv",
   "version": "1.0.0",
   "description": "Very simple module to work with CSV, inspired by the simpleness of built-in JSON object of JavaScript.",
   "main": "index.js",
@@ -19,7 +19,28 @@
     "url": "https://github.com/yussufbiyik/simple-csv/issues"
   },
   "homepage": "https://github.com/yussufbiyik/simple-csv#readme",
-  "devDependencies": {
-    "eslint": "^8.24.0"
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "ms": "^2.1.2",
+    "natural-compare": "^1.4.0",
+    "once": "^1.4.0",
+    "optionator": "^0.9.1",
+    "p-limit": "^3.1.0",
+    "p-locate": "^5.0.0",
+    "parent-module": "^1.0.1",
+    "path-exists": "^4.0.0",
+    "path-is-absolute": "^1.0.1",
+    "path-key": "^3.1.1",
+    "path-type": "^4.0.0",
+    "picomatch": "^2.3.1",
+    "prelude-ls": "^1.2.1",
+    "punycode": "^2.1.1",
+    "queue-microtask": "^1.2.3",
+    "regexpp": "^3.2.0",
+    "resolve-from": "^4.0.0",
+    "reusify": "^1.0.4",
+    "rimraf": "^3.0.2",
+    "run-parallel": "^1.2.0",
+    "slash": "^3.0.0"
   }
 }
