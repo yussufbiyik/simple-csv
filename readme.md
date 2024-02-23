@@ -1,5 +1,10 @@
 # simple-csv (WIP)
 Very simple module to work with CSV, inspired by the simpleness of built-in JSON object of JavaScript.
+## Installing
+Using npm:
+```bash
+$ npm i @yussufbiyik/simple-csv
+```
 ## Methods
 ### ```.stringify```
 Returns a CSV string with the given objects and options. Amount of keys in an object does not matter, only things that matter are order of the keys and their names.
